@@ -97,7 +97,7 @@ module Rack
               get_parts(new_value).join
             end.join
           else
-            if value.respond_to?(:original_filename)
+            if value.respond_to?(:original_filename) && !value.original_filename.empty?
               build_file_part(name, value)
 
             elsif value.is_a?(Array) && value.all? { |v| v.respond_to?(:original_filename) }
